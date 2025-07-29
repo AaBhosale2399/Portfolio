@@ -1,0 +1,254 @@
+#wrapper-canvas canvas {
+    max-width: 100%;
+}
+
+body{
+	font-family: sans-serif;
+	margin:0;
+	line-height: 1.5;
+}
+
+*{
+	box-sizing: border-box;
+	margin:0;
+}
+.popup{
+	width: 40px;
+	height: 40px;
+}
+.login-popup{
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1099;
+	background-color:black;
+	visibility: hidden;
+	opacity: 0;
+	transition: all 1s ease;
+}
+.login-popup.show{
+	visibility:visible;
+	opacity: 1;
+}
+.login-popup .box{
+	background-color: #191919;
+	width: 1200px;
+	height: 600px;
+	position: absolute;
+	left: 50%;
+	top:50%;
+	transform:translate(-50%,-50%);
+	display: flex;
+	flex-wrap: wrap;
+	opacity: 0;
+	margin-left: 50px;
+	transition: all 1s ease;
+
+}
+.login-popup.show .box{
+	opacity: 1;
+	margin-left: 0;
+}
+.login-popup .box .img-area{
+	flex:0 0 50%;
+	max-width: 50%;
+	position: relative;
+	overflow: hidden;
+	padding:30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.login-popup .box .img-area .img{
+	width: 300px;
+	height: 300px;
+	animation: zoomInOut 9s linear infinite;
+	z-index: -4;
+}
+.img-container {
+  float: left;
+  width: 10%;
+  padding-top: 50px;
+  padding-left: 10px;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+@keyframes zoomInOut{
+	0%,100%{
+		transform: scale(1);
+	}
+	50%{
+		transform: scale(1.1);
+	}
+}
+.login-popup .box .form{
+	flex:0 0 50%;
+	max-width: 50%;
+	padding:40px 30px;
+}
+
+.login-popup .box .form h1{
+color: #1788ae;
+	font-size: 30px;
+	margin:0 0 30px;
+}
+
+.login-popup .box .form .form-control{
+	height: 45px;
+	margin-bottom: 30px;
+	width: 100%;
+	border:none;
+	color: #ffffff;
+	font-size: 15px;
+	
+}
+.login-popup .box .form .form-control:focus{
+	outline: none;
+}
+.login-popup .box .form label{
+	font-size: 15px;
+	
+}
+
+.login-popup .box .form .btn:focus{
+	outline: none;
+}
+
+.login-popup .box .form .close{
+	   color:white;
+    font-size: 22px;
+	right: 10px;
+    top: 7px;
+    cursor: pointer;
+    position: absolute;
+    z-index: 1;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    text-align: center;
+	justify-content: center;
+    background-color:#27292d;
+    border-radius: 50%;
+	  animation: mymove 5s infinite;
+}
+@keyframes mymove {
+  50% {transform: rotate(360deg);}
+}
+
+/*responsive*/
+@media(max-width: 767px){
+	.login-popup .box{
+		width: calc(100% - 30px);
+	}
+	.login-popup .box .img-area{
+		display: none;
+	}
+	.login-popup .box .form {
+		flex: 0 0 100%;
+        max-width: 100%;
+	}
+	.login-popup .box .form .flex {
+		padding-top: 70px;
+
+	}
+	
+}
+
+
+.tooltip-container {
+ 
+  width: 518px;
+  border-radius: 19px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 72px 64px 24px;
+}
+
+.tooltip-icon {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  font-size: 25px;
+  font-weight: 400;
+  cursor: default;
+  position: relative;
+}
+
+.tooltip-icon img {
+    position: relative;
+    z-index: 10;
+	width: 50px;
+	height: 50px;
+}
+
+.tooltip {
+  font-size: 14px;
+  color: black;
+  position: absolute;
+  top: 16px;
+  border-radius: 24px;
+  padding: 8px 14px;
+  opacity: 0;
+  margin-left: -5px;
+  transition: top 0.25s cubic-bezier(0.68, -0.55, 0.265, 1.55), opacity 0.25s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.tooltip-icon:hover .tooltip {
+    top: -48px;
+    opacity: 1;
+}
+
+.tooltip span {
+  position: relative;
+  z-index: 1;
+}
+
+.flex label{
+	color: white;
+}
+.tooltip::after {
+  content: '';
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  transform: rotate(45deg) translateX(-50%);
+  left: 50%;
+  bottom: -12px;
+  background-color: inherit;
+}
+
+.html .tooltip {
+  background-color: rgb(228 77 37);;
+  color: white;
+}
+
+.css .tooltip {
+  background-color: #264de4;
+   color: white;
+}
+
+.javascript .tooltip {
+  background-color: rgb(240 220 78) ;
+  color: #191919;
+}
+
+.react .tooltip {
+  background-color: #61dafb;
+  color: #191919;
+}
+
+
+@media (max-width: 600px) {
+    .tooltip-container {
+        padding-inline: 16px;
+    }
+}
